@@ -188,6 +188,14 @@ namespace Serial_Oscilloscope
         /// </summary>
         private void toolStripMenuItemBaudRate_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
+            if ((ToolStripMenuItem)e.ClickedItem == toolStripMenuItemOther)
+            {
+                FormGetValue formGetValue = new FormGetValue();
+                formGetValue.ShowDialog();
+                ((ToolStripMenuItem)e.ClickedItem).Text = "Other (" + formGetValue.value + ")";
+                ((ToolStripMenuItem)e.ClickedItem).Checked = false;
+            }
+
             // Do nothing if baud already selected
             if (((ToolStripMenuItem)e.ClickedItem).Checked)
             {
@@ -321,7 +329,14 @@ namespace Serial_Oscilloscope
             {
                 if (toolStripMenuItem.Checked)
                 {
-                    baudRate = Convert.ToInt32(toolStripMenuItem.Text);
+                    try
+                    {
+                        baudRate = Convert.ToInt32((new Regex("[^0-9]")).Replace(toolStripMenuItem.Text, ""));  // convert text to int ignoring all non-numerical characters
+                    }
+                    catch
+                    {
+                        baudRate = 0;
+                    }
                     break;
                 }
             }
