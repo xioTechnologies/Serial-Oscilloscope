@@ -217,6 +217,21 @@ namespace Serial_Oscilloscope
         }
 
         /// <summary>
+        /// toolStripMenuItemEnabled CheckStateChanged event to toggle enabled state of the terminal text box.
+        /// </summary>
+        private void toolStripMenuItemEnabled_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (toolStripMenuItemEnabled.Checked)
+            {
+                textBox.Enabled = true;
+            }
+            else
+            {
+                textBox.Enabled = false;
+            }
+        }
+
+        /// <summary>
         /// toolStripMenuItemChannels123 CheckStateChanged event to toggle show state of oscilloscope form.
         /// </summary>
         private void toolStripMenuItemChannels123_CheckStateChanged(object sender, EventArgs e)
