@@ -435,7 +435,7 @@ namespace Serial_Oscilloscope
                     if ((char)b == '\r')
                     {
                         // Split string to comma separated variables (ignore non numerical characters)
-                        string[] csvs = (new Regex("[^0-9 - ,]")).Replace(asciiBuf, "").Split(',');
+                        string[] csvs = (new Regex(@"[^0-9\-,]")).Replace(asciiBuf, "").Split(',');
 
                         // Extract each CSV as oscilloscope channel 
                         int channelIndex = 0;
