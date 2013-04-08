@@ -432,6 +432,10 @@ namespace Serial_Oscilloscope
                     }
 
                     // Extract CSVs and parse to Oscilloscope
+                    if (asciiBuf.Length > 128)
+                    {
+                        asciiBuf = "";  // prevent memory leak
+                    }
                     if ((char)b == '\r')
                     {
                         // Split string to comma separated variables (ignore non numerical characters)
