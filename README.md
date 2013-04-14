@@ -17,3 +17,4 @@ Version history
 * **v1.0**  Initial release
 * **v1.1**  Supports non-standard baud rates.  Disable terminal feature added.
 * **v1.2**  Fixed memory leak and bug that prevent plotting of negative numbers.
+* **v1.3**  No longer ignores "." for plotting decimal values.
