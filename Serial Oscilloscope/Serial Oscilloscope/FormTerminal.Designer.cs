@@ -40,6 +40,8 @@
             this.toolStripMenuItem460800 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem921600 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemOther = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemTerminal = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemEnabled = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemOsciloscope = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemChannels123 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemChannels456 = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,8 +53,7 @@
             this.toolStripStatusLabelSamplesReceived = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelSampleRate = new System.Windows.Forms.ToolStripStatusLabel();
             this.textBox = new System.Windows.Forms.TextBox();
-            this.toolStripMenuItemTerminal = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemEnabled = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemClear = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -149,6 +150,25 @@
             this.toolStripMenuItemOther.Size = new System.Drawing.Size(110, 22);
             this.toolStripMenuItemOther.Text = "Other";
             // 
+            // toolStripMenuItemTerminal
+            // 
+            this.toolStripMenuItemTerminal.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemEnabled,
+            this.toolStripMenuItemClear});
+            this.toolStripMenuItemTerminal.Name = "toolStripMenuItemTerminal";
+            this.toolStripMenuItemTerminal.Size = new System.Drawing.Size(66, 20);
+            this.toolStripMenuItemTerminal.Text = "Terminal";
+            // 
+            // toolStripMenuItemEnabled
+            // 
+            this.toolStripMenuItemEnabled.Checked = true;
+            this.toolStripMenuItemEnabled.CheckOnClick = true;
+            this.toolStripMenuItemEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toolStripMenuItemEnabled.Name = "toolStripMenuItemEnabled";
+            this.toolStripMenuItemEnabled.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemEnabled.Text = "Enabled";
+            this.toolStripMenuItemEnabled.CheckStateChanged += new System.EventHandler(this.toolStripMenuItemEnabled_CheckStateChanged);
+            // 
             // toolStripMenuItemOsciloscope
             // 
             this.toolStripMenuItemOsciloscope.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -244,23 +264,12 @@
             this.textBox.TabIndex = 1;
             this.textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
-            // toolStripMenuItemTerminal
+            // toolStripMenuItemClear
             // 
-            this.toolStripMenuItemTerminal.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemEnabled});
-            this.toolStripMenuItemTerminal.Name = "toolStripMenuItemTerminal";
-            this.toolStripMenuItemTerminal.Size = new System.Drawing.Size(66, 20);
-            this.toolStripMenuItemTerminal.Text = "Terminal";
-            // 
-            // toolStripMenuItemEnabled
-            // 
-            this.toolStripMenuItemEnabled.Checked = true;
-            this.toolStripMenuItemEnabled.CheckOnClick = true;
-            this.toolStripMenuItemEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.toolStripMenuItemEnabled.Name = "toolStripMenuItemEnabled";
-            this.toolStripMenuItemEnabled.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItemEnabled.Text = "Enabled";
-            this.toolStripMenuItemEnabled.CheckStateChanged += new System.EventHandler(this.toolStripMenuItemEnabled_CheckStateChanged);
+            this.toolStripMenuItemClear.Name = "toolStripMenuItemClear";
+            this.toolStripMenuItemClear.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemClear.Text = "Clear";
+            this.toolStripMenuItemClear.Click += new System.EventHandler(this.toolStripMenuItemClear_Click);
             // 
             // FormTerminal
             // 
@@ -311,6 +320,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemOther;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemTerminal;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemEnabled;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemClear;
     }
 }
 

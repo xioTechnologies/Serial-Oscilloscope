@@ -232,6 +232,14 @@ namespace Serial_Oscilloscope
         }
 
         /// <summary>
+        /// toolStripMenuItemClear Click event to clear terminal text box.
+        /// </summary>
+        private void toolStripMenuItemClear_Click(object sender, EventArgs e)
+        {
+            textBox.Text = "";
+        }
+
+        /// <summary>
         /// toolStripMenuItemChannels123 CheckStateChanged event to toggle show state of oscilloscope form.
         /// </summary>
         private void toolStripMenuItemChannels123_CheckStateChanged(object sender, EventArgs e)
