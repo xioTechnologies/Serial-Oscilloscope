@@ -318,7 +318,7 @@ namespace Serial_Oscilloscope
             toolStripItemCollection.Add("Refresh List");
             foreach (string portName in System.IO.Ports.SerialPort.GetPortNames())
             {
-                toolStripItemCollection.Add(portName);
+                toolStripItemCollection.Add("COM" + Regex.Replace(portName.Substring("COM".Length, portName.Length - "COM".Length), "[^.0-9]", "\0"));
             }
         }
 
