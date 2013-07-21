@@ -62,6 +62,11 @@ namespace Serial_Oscilloscope
         /// </summary>
         private Oscilloscope oscilloscope789 = Oscilloscope.CreateScope("Oscilloscope/Oscilloscope_settings.ini", "");
 
+        /// <summary>
+        /// CSV file writer.
+        /// </summary>
+        private CsvFileWriter csvFileWriter = null;
+
         #endregion
 
         /// <summary>
@@ -105,6 +110,7 @@ namespace Serial_Oscilloscope
         private void FormTerminal_FormClosed(object sender, FormClosedEventArgs e)
         {
             CloseSerialPort();
+            toolStripMenuItemStopLogging.PerformClick();
         }
 
         #endregion
@@ -282,6 +288,38 @@ namespace Serial_Oscilloscope
             {
                 oscilloscope789.HideScope();
             }
+        }
+
+        /// <summary>
+        /// toolStripMenuItemStartLogging Click event to select file location and start logging
+        /// </summary>
+        private void toolStripMenuItemStartLogging_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Select File Location";
+            saveFileDialog.Filter = "CSV files (*.csv)|*.csv";
+            saveFileDialog.OverwritePrompt = false;
+            saveFileDialog.FileName = "LoggedData";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                csvFileWriter = new CsvFileWriter(saveFileDialog.FileName.ToString());
+                toolStripMenuItemStartLogging.Enabled = false;
+                toolStripMenuItemStopLogging.Enabled = true;
+            }
+        }
+
+        /// <summary>
+        /// toolStripMenuItemStopLogging Click event to stop logging and close file
+        /// </summary>
+        private void toolStripMenuItemStopLogging_Click(object sender, EventArgs e)
+        {
+            if (csvFileWriter != null)
+            {
+                csvFileWriter.CloseFile();
+                csvFileWriter = null;
+            }
+            toolStripMenuItemStartLogging.Enabled = true;
+            toolStripMenuItemStopLogging.Enabled = false;
         }
 
         /// <summary>
@@ -467,6 +505,14 @@ namespace Serial_Oscilloscope
                             oscilloscope789.AddScopeData(channels[6], channels[7], channels[8]);
                             sampleCounter.Increment();
                         }
+
+                        // Write to file if enabled
+                        if (csvFileWriter != null)
+                        {
+                            csvFileWriter.WriteCSVline(channels);
+                        }
+
+                        // Reset buffer
                         asciiBuf = "";
                     }
                     else

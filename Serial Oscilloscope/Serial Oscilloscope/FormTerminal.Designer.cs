@@ -42,6 +42,7 @@
             this.toolStripMenuItemOther = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemTerminal = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemEnabled = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemClear = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemOsciloscope = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemChannels123 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemChannels456 = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +54,9 @@
             this.toolStripStatusLabelSamplesReceived = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelSampleRate = new System.Windows.Forms.ToolStripStatusLabel();
             this.textBox = new System.Windows.Forms.TextBox();
-            this.toolStripMenuItemClear = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemLogToFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemStartLogging = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemStopLogging = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -65,6 +68,7 @@
             this.toolStripMenuItemBaudRate,
             this.toolStripMenuItemTerminal,
             this.toolStripMenuItemOsciloscope,
+            this.toolStripMenuItemLogToFile,
             this.toolStripMenuItemHelp});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -165,9 +169,16 @@
             this.toolStripMenuItemEnabled.CheckOnClick = true;
             this.toolStripMenuItemEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItemEnabled.Name = "toolStripMenuItemEnabled";
-            this.toolStripMenuItemEnabled.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemEnabled.Size = new System.Drawing.Size(116, 22);
             this.toolStripMenuItemEnabled.Text = "Enabled";
             this.toolStripMenuItemEnabled.CheckStateChanged += new System.EventHandler(this.toolStripMenuItemEnabled_CheckStateChanged);
+            // 
+            // toolStripMenuItemClear
+            // 
+            this.toolStripMenuItemClear.Name = "toolStripMenuItemClear";
+            this.toolStripMenuItemClear.Size = new System.Drawing.Size(116, 22);
+            this.toolStripMenuItemClear.Text = "Clear";
+            this.toolStripMenuItemClear.Click += new System.EventHandler(this.toolStripMenuItemClear_Click);
             // 
             // toolStripMenuItemOsciloscope
             // 
@@ -264,12 +275,29 @@
             this.textBox.TabIndex = 1;
             this.textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
-            // toolStripMenuItemClear
+            // toolStripMenuItemLogToFile
             // 
-            this.toolStripMenuItemClear.Name = "toolStripMenuItemClear";
-            this.toolStripMenuItemClear.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItemClear.Text = "Clear";
-            this.toolStripMenuItemClear.Click += new System.EventHandler(this.toolStripMenuItemClear_Click);
+            this.toolStripMenuItemLogToFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemStartLogging,
+            this.toolStripMenuItemStopLogging});
+            this.toolStripMenuItemLogToFile.Name = "toolStripMenuItemLogToFile";
+            this.toolStripMenuItemLogToFile.Size = new System.Drawing.Size(77, 20);
+            this.toolStripMenuItemLogToFile.Text = "Log To File";
+            // 
+            // toolStripMenuItemStartLogging
+            // 
+            this.toolStripMenuItemStartLogging.Name = "toolStripMenuItemStartLogging";
+            this.toolStripMenuItemStartLogging.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemStartLogging.Text = "Start Logging";
+            this.toolStripMenuItemStartLogging.Click += new System.EventHandler(this.toolStripMenuItemStartLogging_Click);
+            // 
+            // toolStripMenuItemStopLogging
+            // 
+            this.toolStripMenuItemStopLogging.Enabled = false;
+            this.toolStripMenuItemStopLogging.Name = "toolStripMenuItemStopLogging";
+            this.toolStripMenuItemStopLogging.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemStopLogging.Text = "Stop Logging";
+            this.toolStripMenuItemStopLogging.Click += new System.EventHandler(this.toolStripMenuItemStopLogging_Click);
             // 
             // FormTerminal
             // 
@@ -321,6 +349,9 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemTerminal;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemEnabled;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemClear;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLogToFile;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemStartLogging;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemStopLogging;
     }
 }
 

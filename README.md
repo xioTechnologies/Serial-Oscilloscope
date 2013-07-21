@@ -19,3 +19,4 @@ Version history
 * **v1.2**  Fixed memory leak and bug that prevent plotting of negative numbers.
 * **v1.3**  No longer ignores "." for plotting decimal values.
 * **v1.4**  Clear terminal menu item added
+* **v1.5**  Log to file tool.  Remove non-numerical characters from port names.
