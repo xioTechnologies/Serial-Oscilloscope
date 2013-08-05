@@ -9,7 +9,7 @@ The source files also include an Arduino sketch to send analogue input values ov
 
 In the [YouTube video](http://www.youtube.com/watch?v=jgMG0UQ2_pc) I show the Arduino and Serial Oscilloscope being used to plot data from an [IR distance sensor]( https://www.sparkfun.com/products/242), a [triple-axis accelerometer]( https://www.sparkfun.com/products/9269) and a [microphone]( https://www.sparkfun.com/products/9964).
 
-Precompiled binary files can be [download](http://www.x-io.co.uk/serial-oscilloscope/) from the x-io website.
+Precompiled binary files can be [downloaded](http://www.x-io.co.uk/serial-oscilloscope/) from the x-io website.
 
 Version history
 ---------------
