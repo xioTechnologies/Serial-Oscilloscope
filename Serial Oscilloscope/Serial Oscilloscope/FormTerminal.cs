@@ -409,6 +409,8 @@ namespace Serial_Oscilloscope
                 serialPort = new SerialPort(portName, baudRate, Parity.None, 8, StopBits.One);
                 serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived);
                 serialPort.Open();
+                if (dTRToolStripMenuItem.Checked) serialPort.DtrEnable = true;
+                if (rTSToolStripMenuItem.Checked) serialPort.RtsEnable = true;
                 this.Text = Assembly.GetExecutingAssembly().GetName().Name + " (" + portName + ", " + baudRate.ToString() + ")";
                 sampleCounter.Reset();
                 return true;
@@ -525,5 +527,17 @@ namespace Serial_Oscilloscope
         }
 
         #endregion
+
+        private void dTRToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dTRToolStripMenuItem.Checked = !dTRToolStripMenuItem.Checked;
+            if (serialPort.IsOpen) serialPort.DtrEnable = dTRToolStripMenuItem.Checked;
+        }
+
+        private void rTSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rTSToolStripMenuItem.Checked = !rTSToolStripMenuItem.Checked;
+            if (serialPort.IsOpen) serialPort.RtsEnable = rTSToolStripMenuItem.Checked;
+        }
     }
 }
